@@ -349,7 +349,8 @@ final class RulerView extends View {
      */
     private void drawValueText(@NonNull final Canvas canvas,
                                final int value) {
-        canvas.drawText(String.valueOf((value + mMinValue) / (hasDigit ? 10 : 1)),
+        double valueDouble = (value + mMinValue) / (hasDigit ? 10.0 : 1.0) ;
+        canvas.drawText(fmt(valueDouble),
                 mIndicatorInterval * value,
                 mLongIndicatorHeight + mTextPaint.getTextSize(),
                 mTextPaint);
@@ -548,4 +549,13 @@ final class RulerView extends View {
 
         invalidate();
     }
+
+    public static String fmt(double d)
+    {
+        if(d == (long) d)
+            return String.format("%d",(long)d);
+        else
+            return String.format("%s",d);
+    }
+
 }
