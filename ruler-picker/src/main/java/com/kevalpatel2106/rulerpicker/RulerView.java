@@ -134,6 +134,9 @@ final class RulerView extends View {
     @ColorInt
     private int mTextColor = Color.WHITE;
 
+
+    boolean hasDigit = false;
+
     /**
      * Integer color of the indicators.
      *
@@ -243,6 +246,7 @@ final class RulerView extends View {
         refreshPaint();
     }
 
+
     /**
      * Create the indicator paint and value text color.
      */
@@ -345,7 +349,7 @@ final class RulerView extends View {
      */
     private void drawValueText(@NonNull final Canvas canvas,
                                final int value) {
-        canvas.drawText(String.valueOf(value + mMinValue),
+        canvas.drawText(String.valueOf((value + mMinValue) / (hasDigit ? 10 : 1)),
                 mIndicatorInterval * value,
                 mLongIndicatorHeight + mTextPaint.getTextSize(),
                 mTextPaint);

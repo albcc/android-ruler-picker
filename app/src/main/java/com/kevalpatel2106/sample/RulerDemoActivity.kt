@@ -81,6 +81,7 @@ class RulerDemoActivity : AppCompatActivity() {
             )
         }
 
+        ruler_value_picker.isHasDigit = true
         //Change the text size
         ruler_text_size_picker.setProgress(ruler_value_picker.textSize)
         ruler_text_size_picker.onProgressChangedListener = object : BubbleSeekBar.OnProgressChangedListener {

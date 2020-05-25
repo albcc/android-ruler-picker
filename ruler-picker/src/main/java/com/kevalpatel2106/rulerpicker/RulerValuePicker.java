@@ -138,6 +138,18 @@ public final class RulerValuePicker extends FrameLayout implements ObservableHor
         init(attrs);
     }
 
+    public boolean isHasDigit() {
+        return hasDigit;
+    }
+
+    public void setHasDigit(boolean hasDigit) {
+        this.hasDigit = hasDigit;
+        mRulerView.hasDigit = hasDigit;
+        mRulerView.invalidate();
+    }
+
+    private boolean hasDigit = false;
+
     /**
      * Initialize the view and parse the {@link AttributeSet}.
      *
